@@ -1,19 +1,36 @@
 <div class="container mt-3 shadow p-0 bg-white rounded">
   <div class="bg-gradient-light bg-primary p-3 border-bottom">
-    <h2><%= @cocktail.name %></h2>
+    <h2 class="text-light mt-1"><%= @cocktail.name %></h2>
   </div>
-  <div class="row mt-3">
-    <div class="card">
-      <h3>Ingredients</h3>
-      <ul>
-        <% @cocktail.doses.each do |dose| %>
-          <li><%= dose.ingredient.name %> <%= dose.description %> <%= link_to "delete", dose_path(dose.id), method: "delete" %></li>
-        <% end %>
-      </ul>
-      <p><%= link_to "back", cocktails_path %></p>
-    </div>
-    <div class="card">
-      <%= render partial: "doses/form" %>
+  <div class="container">
+    <div class="row mt-3">
+      <div class="col-8">
+        <div class="card shadow-sm p-3 mb-5 bg-white rounded">
+          <div class="d-flex justify-content-between">
+            <div class="show-content">
+              <h3>Ingredients</h3>
+                <% @cocktail.doses.each do |dose| %>
+                  <div class="d-flex justify-content-between">
+                    <ul class="mb-0">
+                      <li><%= dose.ingredient.name %> <%= dose.description %></li>
+                    </ul>
+                    <%= link_to dose_path(dose.id), method: "delete" do %>
+                      <%= fa_icon "trash", class: "pl-3" %>
+                    <% end %>
+                  </div>
+                <% end %>
+            </div>
+            <div class="cocktail-pic border">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="card shadow-sm p-3 mb-5 bg-white rounded">
+          <h3>Add ingredients and quantities</h3>
+          <%= render partial: "doses/form" %>
+        </div>
+      </div>
     </div>
   </div>
 </div>

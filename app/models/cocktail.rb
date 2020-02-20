@@ -6,8 +6,8 @@ class Cocktail < ApplicationRecord
 
   def self.search(search)
     if search
-      cocktail = Cocktail.find_by_name(search)
-      if cocktail
+      cocktail = Cocktail.all.map { |cocktail| cocktail if cocktail.name.match(/#{search}/) }
+      if cocktail.empty?
         self.where(id: cocktail)
       else
         @cocktails = Cocktail.all
