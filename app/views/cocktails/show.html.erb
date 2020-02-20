@@ -1,8 +1,19 @@
-<h2><%= @cocktail.name %></h2>
-<h3>Ingredients</h3>
-<ul>
-  <% @cocktail.doses.each do |dose| %>
-    <li><%= dose.ingredient.name %> <%= dose.description %></li>
-  <% end %>
-</ul>
-<p><%= link_to "back", cocktails_path %></p>
+<div class="container mt-3 shadow p-0 bg-white rounded">
+  <div class="bg-gradient-light bg-primary p-3 border-bottom">
+    <h2><%= @cocktail.name %></h2>
+  </div>
+  <div class="row mt-3">
+    <div class="card">
+      <h3>Ingredients</h3>
+      <ul>
+        <% @cocktail.doses.each do |dose| %>
+          <li><%= dose.ingredient.name %> <%= dose.description %> <%= link_to "delete", dose_path(dose.id), method: "delete" %></li>
+        <% end %>
+      </ul>
+      <p><%= link_to "back", cocktails_path %></p>
+    </div>
+    <div class="card">
+      <%= render partial: "doses/form" %>
+    </div>
+  </div>
+</div>
