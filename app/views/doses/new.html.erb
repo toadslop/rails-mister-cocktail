@@ -1,0 +1,12 @@
+<% if @cocktail.doses.nil? %>
+  <h3>Add ingredients and amounts for <%= @cocktail.name %></h3>
+<% else %>
+  <h3>Add another ingredient to <%= @cocktail.name %>?</h3>
+  <ul>
+    <% @cocktail.doses.each do |dose| %>
+      <li><%= dose.ingredient.name %> <%= dose.description %></li>
+    <% end %>
+  </ul>
+<% end %>
+<%= render partial: 'form' %>
+<%= link_to "finished", cocktail_path(@cocktail.id), class: "btn btn-primary" %>
