@@ -1,13 +1,16 @@
 class CocktailsController < ApplicationController
-  before_action :set_cocktail, only: []
+  before_action :set_cocktail, only: [:show]
 
   def index
     @cocktails = Cocktail.all
   end
 
+  def show
+  end
+
   private
 
-  def cocktails_params
+  def cocktail_params
     params.require(:cocktail).permit(:name)
   end
 
