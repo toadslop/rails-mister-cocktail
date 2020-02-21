@@ -48,7 +48,8 @@ gem 'rspec-rails', group: [ :test ]
 gem 'rails-controller-testing', group: [ :test ]
 
 # personal gems
+gem 'react-rails'
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass', '~> 5.6.1'
 gem 'simple_form'
-gem 'font-awesome-rails'
+gem "font-awesome-rails"
