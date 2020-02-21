@@ -20,7 +20,8 @@
                   </div>
                 <% end %>
             </div>
-            <div class="cocktail-pic border">
+            <div class="cocktail-pic border d-flex justify-content-center">
+              <%= cl_image_tag @cocktail.photo.key, class: "mw-100 mh-100", crop: :fill %>
             </div>
           </div>
         </div>

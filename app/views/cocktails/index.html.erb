@@ -11,9 +11,9 @@
     <div class="row mt-3">
       <% @cocktails.each do |cocktail| %>
         <div class="col-4">
-          <div class="card cocktail shadow-sm p-3 mb-5 bg-white rounded">
+          <div class="card cocktail shadow-sm p-3 mb-5 bg-white rounded" style="background-image: url(<%= cl_image_path cocktail.photo.key, crop: :fill %>); background-size: 100%; background-repeat: no-repeat; background-position: 0 -64px">
             <div class="d-flex justify-content-between">
-              <h3><%= link_to cocktail.name, cocktail_path(cocktail), class: "text-dark" %></h3>
+              <h3><%= link_to cocktail.name, cocktail_path(cocktail), class: "text-light card-text" %></h3>
               <div class="">
                 <h4>
                   <%= link_to cocktail_path(cocktail) do %>
