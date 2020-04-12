@@ -7,11 +7,11 @@ class Cocktail < ApplicationRecord
 
   def self.search(search)
     if search
-      cocktail = Cocktail.all.map { |cocktail| cocktail if cocktail.name.match(/#{search}/) }
+      cocktail = Cocktail.all.map { |cocktail| cocktail if cocktail.name.match(/#{search}/i) }
       if cocktail.empty?
-        self.where(id: cocktail)
-      else
         @cocktails = Cocktail.all
+      else
+        self.where(id: cocktail)
       end
     else
       @cocktails = Cocktail.all
